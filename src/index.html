@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Step Project "Cards"</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</head>
+
+<body class="body">
+  <header class="header">
+
+    <nav class="navbar navbar-expand navbar-light ">
+      <div class="container-fluid">
+        <div class="container-fluid d-flex justify-content-between">
+          <a class="navbar-brand p-2 " href="#"><img class="img-fluid" src="./img/logo.png" alt="logo" width="300"
+              height="90"></a>
+          <div class="navbar p-2 flex-shrink-1">
+            <button type="button" id="openBtn" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal"
+              data-bs-target="#myModal">Вхід</button>
+            <button type="button" id="create_visit" class="btn btn-warning btn-lg ps-3" style="display: none;">
+              <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" id="svgPlus">
+                <g id="icon-wrapper" clip-path="url(#clip0_216_875)">
+                  <g id="Union">
+                    <path
+                      d="M13.9997 1.28891C14.2649 1.28891 14.5192 1.39427 14.7068 1.5818C14.8943 1.76934 14.9997 2.02369 14.9997 2.28891V14.2889C14.9997 14.5541 14.8943 14.8085 14.7068 14.996C14.5192 15.1836 14.2649 15.2889 13.9997 15.2889H1.99966C1.73445 15.2889 1.48009 15.1836 1.29256 14.996C1.10502 14.8085 0.999664 14.5541 0.999664 14.2889V2.28891C0.999664 2.02369 1.10502 1.76934 1.29256 1.5818C1.48009 1.39427 1.73445 1.28891 1.99966 1.28891H13.9997ZM1.99966 0.28891C1.46923 0.28891 0.960523 0.499624 0.585451 0.874696C0.210378 1.24977 -0.000335693 1.75848 -0.000335693 2.28891V14.2889C-0.000335693 14.8193 0.210378 15.3281 0.585451 15.7031C0.960523 16.0782 1.46923 16.2889 1.99966 16.2889H13.9997C14.5301 16.2889 15.0388 16.0782 15.4139 15.7031C15.7889 15.3281 15.9997 14.8193 15.9997 14.2889V2.28891C15.9997 1.75848 15.7889 1.24977 15.4139 0.874696C15.0388 0.499624 14.5301 0.28891 13.9997 0.28891H1.99966Z"
+                      fill="white" />
+                    <path
+                      d="M7.99966 4.28891C8.13227 4.28891 8.25945 4.34159 8.35322 4.43536C8.44699 4.52912 8.49966 4.6563 8.49966 4.78891V7.78891H11.4997C11.6323 7.78891 11.7594 7.84159 11.8532 7.93536C11.947 8.02912 11.9997 8.1563 11.9997 8.28891C11.9997 8.42152 11.947 8.5487 11.8532 8.64246C11.7594 8.73623 11.6323 8.78891 11.4997 8.78891H8.49966V11.7889C8.49966 11.9215 8.44699 12.0487 8.35322 12.1425C8.25945 12.2362 8.13227 12.2889 7.99966 12.2889C7.86706 12.2889 7.73988 12.2362 7.64611 12.1425C7.55234 12.0487 7.49966 11.9215 7.49966 11.7889V8.78891H4.49966C4.36706 8.78891 4.23988 8.73623 4.14611 8.64246C4.05234 8.5487 3.99966 8.42152 3.99966 8.28891C3.99966 8.1563 4.05234 8.02912 4.14611 7.93536C4.23988 7.84159 4.36706 7.78891 4.49966 7.78891H7.49966V4.78891C7.49966 4.6563 7.55234 4.52912 7.64611 4.43536C7.73988 4.34159 7.86706 4.28891 7.99966 4.28891Z"
+                      fill="white" />
+                  </g>
+                </g>
+                <defs>
+                  <clipPath id="clip0_216_875">
+                    <rect width="16" height="16" fill="white" transform="translate(0 0.289734)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <span class="btnToggleText">Додати візит</span>
+              </button>
+            <button type="button" id="closeBtn" class="btn btn-outline-primary btn-lg ms-4"
+              style="display: none;">Вихід</button>
+          </div>
+        </div>
+
+    </nav>
+
+    <nav class="navbar navbar-collapse d-flex justify-content-evenly gap-5 w-auto pt-5 pb-5 d-none" id="navbarFilter"
+      style="background-color: rgba(7, 62, 97, 1);">
+      <div class="nav-wrapper"><input type="text" class="form-control ds-input" id="search-input"
+          placeholder="Пошук клієнта..." aria-label="Search by fullName..." autocomplete="off" spellcheck="false"
+          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
+          dir="auto" style="vertical-align: top;">
+        <button type="button" class="btn-close clean-text d-none" aria-label="Close"></button>
+        <button type="button" class="btn btn-outline-light" id="search_btn">Пошук</button>
+      </div>
+
+      <div class="dropdown ">
+        <button class="btn btn-info btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Пошук за статусом
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item open" href="#">Активний</a></li>
+          <li><a class="dropdown-item done" href="#">Завершений</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item cards_client" href="#">Всі картки</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Терміновість візиту
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item common" href="#">Звичайна</a></li>
+          <li><a class="dropdown-item priority" href="#">Пріоритетна</a></li>
+          <li><a class="dropdown-item urgency" href="#">Невідкладна</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item cards_priority" href="#">Всі картки</a></li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <div class="modal fade modalsome" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Заголовок модального вікна -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ВХІД ДО ОСОБИСТОГО КАБІНЕТУ</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <!-- Тіло модального вікна -->
+          <div class="modal-body" style="display: block;">
+
+            <form class="form m-auto" style="width:400px; height:200px;">
+              <div class="mb-3">
+                <label for="email" class="form-label">Електронна адреса:</label>
+                <input type="text" name="email" class="form-control" id="InputEmail1" placeholder="Введіть email"
+                  required>
+
+              </div>
+              <div class="mb-3">
+                <label for="InputPassword1" class="form-label ">Пароль:</label>
+                <input type="password" name="password" class="form-control" id="InputPassword1"
+                  placeholder="Введіть пароль" required minlength="5">
+              </div>
+              <button type="submit" class="btn btn-primary ">Submit</button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </header>
+
+  <main class="main container-fluid justify-content-center align-items-center">
+    <div class="noCards"><span class="noCards__text">No items have been added</span></div>
+    <div class="home-page" id='home-page'>
+      <h1>Медичний центр <span class="clinic-name">DAN-IT Clinic</span></h1>
+
+
+      <p class="home-page__text">- Висока якість послуг, кваліфіковані лікарі, точні діагнози -</p>
+      <div class="home-page__wrapper">
+        <img class='home-page__img' src="./img/piluli.jpg" alt="piluli">
+        <ul class="home-page__list">
+          <li class="home-page__item">- Бездоганна якість</li>
+          <li class="home-page__item">- Новітнє обладнання</li>
+          <li class="home-page__item">- Доступні ціни</li>
+          <li class="home-page__item">- Кваліфікований персонал</li>
+          <li class="home-page__item">- Турбота про пацієнтів</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center doctorBtnWrapper d-none"
+      data-bs-target="#exampleModal">
+      <button type="button" class="btn doctorBtn">
+        <img src="./img/stethoscop-or.png" class="card-img-top" alt="stethoscop" />
+        <h2 class="card-title text-center text-uppercase mt-5 btnChooseDoctor">Терапевт</h2>
+      </button>
+      <button type="button" class="btn doctorBtn">
+        <img src="./img/cardiology-or.png" class="card-img-top" alt="cardiology" />
+        <h2 class="card-title text-center text-uppercase mt-5 btnChooseDoctor">Кардіолог</h2>
+      </button>
+      <button type="button" class="btn doctorBtn">
+        <img src="./img/tooth-or.png" class="card-img-top" alt="tooth" />
+        <h2 class="card-title text-center text-uppercase mt-5 btnChooseDoctor">Стоматолог</h2>
+      </button>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center align-items-center doctorBtnWrapper d-none"
+      data-bs-target="#exampleModal">
+      <button type="button" class="btn doctorBtn">
+        <img src="./img/stethoscop-or.png" class="card-img-top" alt="stethoscop" />
+        <h2 class="card-title text-center text-uppercase mt-5 btnChooseDoctor">Терапевт</h2>
+      </button>
+      <button type="button" class="btn doctorBtn">
+        <img src="./img/cardiology-or.png" class="card-img-top" alt="cardiology" />
+        <h2 class="card-title text-center text-uppercase mt-5 btnChooseDoctor">Кардіолог</h2>
+      </button>
+      <button type="button" class="btn doctorBtn">
+        <img src="./img/tooth-or.png" class="card-img-top" alt="tooth" />
+        <h2 class="card-title text-center text-uppercase mt-5 btnChooseDoctor">Стоматолог</h2>
+      </button>
+    </div>
+
+
+    <!-- Модалка візиту -->
+    <div class="modal fade modalVisit" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content modalDialogVisit">
+          <div class="modal-header border-0 me-3">
+            <h3 class="modal-title text-uppercase text-center" id="exampleModalLabel">Створити новий візит</h3>
+            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-0">
+            <div class="dropdown d-flex justify-content-center align-items-center">
+              <label for="select" class="selectLabel me-3">Лікар: </label>
+              <select class="form-select js-doctor chooseDoctorSelect border-0" id="select"
+                aria-label="Default select example">
+                <option value="choose" class="fs-5" disabled>Вибрати лікаря</option>
+                <option value="cardiologist" class="fs-4">Кардіолог</option>
+                <option value="dentist" class="fs-4">Стоматолог</option>
+                <option value="therapist" class="fs-4">Терапевт</option>
+              </select>
+            </div>
+            <button type="button" class="editForm ms-4 text-decoration-underline">Змінити форму</button>
+          </div>
+          <div class="modal-footer js-contentModal border-0 pt-0"></div>
+        </div>
+      </div>
+    </div>
+    <ul id="cardContainer" class="card__list list-unstyled row"></ul>
+  </main>
+
+
+  <!-- "Toast", position in HTML doesn't matter; -->
+  <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">
+          <img src="./img/logo1.png" alt="logo" class="w-50">
+        </strong>
+        <button type="button" class="btn-close p-3" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body fs-5 fw-medium">
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>Dan-It Clinic</span>
+    <span>+38(093)555-789-21</span>
+    <span>e-mail: dan-it@clinic.com</span>
+  </footer>
+
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
